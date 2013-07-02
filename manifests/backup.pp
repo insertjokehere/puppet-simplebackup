@@ -1,9 +1,9 @@
 define simplebackup::backup($source=$name, $listfile="/var/backuplist") {
 
-	if $source =~ /.*//$/ {
+	if $source =~ /.*\/$/ {
 		$t  = $source
 	} else {
-		$s = "${source}/"
+		$t = "${source}/"
 	}
 
 	concat::fragment{"backup_${source}":
