@@ -1,4 +1,4 @@
-define simplebackup::backupsystem(server=$name, serverpath, serveruser="root", listfile="/var/backuplist", key="/root/.ssh/id_rsa") {
+define simplebackup::backupsystem($server=$name, $serverpath, $serveruser="root", $listfile="/var/backuplist", $key="/root/.ssh/id_rsa") {
 	
 	file { "/bin/backup.sh":
 		owner => "root",
