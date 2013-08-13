@@ -2,5 +2,5 @@
 serverpath="<%= serverpath -%>"
 server="<%= serveruser -%>@<%= server -%>"
 while read f; do
-	rsync -avz --delete -e "ssh -i <%= key -%>" --rsync-path="mkdir -p $serverpath$f && rsync" $f $server:$serverpath$f
+	rsync -avz --delete --quiet --no-t -e "ssh -i <%= key -%>" --rsync-path="mkdir -p $serverpath$f && rsync" $f $server:$serverpath$f
 done < <%= listfile -%>
